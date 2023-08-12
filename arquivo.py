@@ -1,4 +1,6 @@
-def print_repository():
-    print("Este é um exemplo de código")
+def main():
+    print("Este é um exemplo de código para a GitHub Action.")
+    print("Aqui está a palavra 'repositorio'.")
 
-print_repository()
+if __name__ == "__main__":
+    main()

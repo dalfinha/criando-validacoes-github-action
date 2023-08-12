@@ -3,7 +3,7 @@ name: Pré requisitos (Obrigatórios)
 on: [push]
 
 jobs:
-  style-check:
+  valida-pre-requisitos: 
     runs-on: ubuntu-latest
 
     steps:

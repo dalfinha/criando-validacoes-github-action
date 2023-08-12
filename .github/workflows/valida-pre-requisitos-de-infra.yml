@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v2 # verifica o código do repositório
       
     - name: Instalação do Python
-      uses: actions/setup-python@v2 #instala o python e dependencias
+      uses: actions/setup-python@v2 # instala o python e dependencias
       with:
         python-version: 3.8
     
@@ -19,7 +19,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8
-  
+    
     - name: Busca pela Palavra "repositorio"
       run: |
-        grep -rni "repositorio" .
+        if ! grep -rni "repositorio" .; then
+          echo "Erro: A palavra 'repositorio' não foi encontrada."
+          exit 1
+        fi

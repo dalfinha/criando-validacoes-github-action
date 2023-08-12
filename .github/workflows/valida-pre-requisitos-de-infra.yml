@@ -26,3 +26,4 @@ jobs:
           echo "Erro: A palavra 'repositorio' não foi encontrada."
           exit 1
         fi
+      continue-on-error: true

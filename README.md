@@ -1,41 +1,23 @@
-# Documentação do Fluxo de Trabalho - Verificação de Tags
+# 💡 Verificação de Tags/Palavras chaves em um código
 
-Este fluxo de trabalho é projetado para verificar a presença de tags específicas nos arquivos do repositório após um evento de push.
+Pensando em automatizar pushs do Github, o script em .YAML e BASH verifica a presença de tags/termos específicas nos arquivos do repositório. Não incluíndo o actions presente no .github\workflows\.
 
-## Descrição
+## O que é?
 
-Esse fluxo de trabalho é acionado sempre que ocorre um evento de push no repositório. Ele verifica a presença de tags específicas nos arquivos do código do repositório e gera mensagens de sucesso ou erro com base nos resultados da busca.
+O arquivo presente no diretório .github/workflows/ é a base para o Github Actions procurar a palavra "Repositorio", "Servico_Operacional" e "Tecnologia", gerando mensagem de sucesso ou erro com base na busca.  A mensagem de sucesso inclui em qual arquivo as palavras se encontram. 
 
-## Tags Verificadas
+## Como o fluxo funciona? ⭐
 
-O fluxo de trabalho verifica as seguintes tags nos arquivos do código:
-
-- **Tag Repositorio**: Verifica a presença da tag "repositorio" nos arquivos do repositório.
-
-- **Tag Servico_Operacional**: Verifica a presença da tag "Servico_Operacional" nos arquivos do repositório.
-
-- **Tag Tecnologia**: Verifica a presença da tag "Tecnologia" nos arquivos do repositório.
-
-## Passos do Fluxo de Trabalho
+### valida-pre-requisitos-infra.yml
 
 1. **Checkout da última versão do código**: O repositório é clonado para o ambiente do fluxo de trabalho para análise.
 
 2. **Verificação de Tags**:
    - Cada passo verifica a presença de uma tag específica usando o comando `grep`.
-   - O comando `grep` procura pela tag nos arquivos do código, excluindo os diretórios `.github` e `.github/workflows`.
-   - Se a tag for encontrada, uma mensagem de sucesso é exibida e os arquivos onde a tag foi encontrada são listados.
-   - Se a tag não for encontrada, uma mensagem de erro é exibida com instruções para incluir a tag.
+   - O comando `grep` procura pela palavra nos arquivos do código, excluindo os diretórios `.github` e `.github/workflows`.
+   - Se a palavra for encontrada, uma mensagem de sucesso é exibida e os arquivos onde a tag foi encontrada são listados.
+   - Se a palavra não for encontrada, uma mensagem de erro é exibida com instruções para incluir a tag.
 
 ## Utilização
 
-- Certifique-se de configurar as chaves de autenticação (se necessário) e definir o evento de push como acionador para esse fluxo de trabalho.
-
 - Personalize as tags verificadas e as mensagens de sucesso/erro conforme necessário.
-
-## Notas
-
-- Esse fluxo de trabalho pode ser personalizado para verificar outras tags ou critérios específicos de acordo com as necessidades do projeto.
-
-- O uso de tags ajuda a manter o código organizado e a fornecer informações adicionais sobre as partes do projeto.
-
-- Certifique-se de manter esta documentação atualizada e vinculada ao fluxo de trabalho no repositório.

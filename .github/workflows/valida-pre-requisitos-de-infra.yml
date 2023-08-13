@@ -20,12 +20,35 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8
     
-    - name: Busca pela Palavra "repositorio"
+    - name: Tag Key - Repositorio
       run: |
         if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
-          echo "Sucesso: A palavra 'repositorio' foi encontrada."
+          echo "[SUCESSO] Tag Repositorio incluída."
+          echo "Encontrada nos seguintes arquivos:"
           cat resultado_busca.txt
         else
-          echo "Erro: A palavra 'repositorio' não foi encontrada. "
+          echo "[ERRO] Tag Repositorio não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
+          exit 1
+        fi
+
+    - name: Tag Key - Servico_Operacional
+      run: |
+        if grep -rnil "Servico_Operacional" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
+          echo "[SUCESSO] Tag Servico_Operacional incluída."
+          echo "Encontrada nos seguintes arquivos:"
+          cat resultado_busca.txt
+        else
+          echo "[ERRO] Tag Servico_Operacional não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
+          exit 1
+        fi
+
+    - name: Tag Key - Tecnologia
+      run: |
+        if grep -rnil "Tecnologia" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
+          echo "[SUCESSO] Tag Tecnologia incluída."
+          echo "Encontrada nos seguintes arquivos:"
+          cat resultado_busca.txt
+        else
+          echo "[ERRO] Tag Tecnlogia não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
           exit 1
         fi

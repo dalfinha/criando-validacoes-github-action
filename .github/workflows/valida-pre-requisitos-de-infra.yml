@@ -20,10 +20,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8
     
-    - name: Verificar Presença da Palavra "repositorio" no Código
+    - name: Busca pela Palavra "repositorio"
       run: |
-        if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/*; then
+        if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
           echo "Sucesso: A palavra 'repositorio' foi encontrada."
+          cat resultado_busca.txt
         else
           echo "Erro: A palavra 'repositorio' não foi encontrada."
           exit 1

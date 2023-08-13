@@ -22,7 +22,7 @@ jobs:
     
     - name: Verificar Presença da Palavra "repositorio" no Código
       run: |
-        if grep -rni "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/*; then
+        if grep -rni "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/*; then
           echo "Sucesso: A palavra 'repositorio' foi encontrada."
         else
           echo "Erro: A palavra 'repositorio' não foi encontrada."

@@ -20,12 +20,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8
     
-    - name: Listar Conteúdo do Diretório
-      run: ls -R
-
-    - name: Busca pela Palavra "repositorio"
+    - name: Verificar Presença da Palavra "repositorio"
       run: |
-        if ! grep -rni "repositorio" "${{ github.workspace }}"; then
+        if grep -rni "repositorio" "${{ github.workspace }}"; then
+          echo "Sucesso: A palavra 'repositorio' foi encontrada."
+        else
           echo "Erro: A palavra 'repositorio' não foi encontrada."
           exit 1
         fi

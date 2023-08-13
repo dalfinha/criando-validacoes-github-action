@@ -26,6 +26,6 @@ jobs:
           echo "Sucesso: A palavra 'repositorio' foi encontrada."
           cat resultado_busca.txt
         else
-          echo "Erro: A palavra 'repositorio' não foi encontrada."
+          echo "Erro: A palavra 'repositorio' não foi encontrada. "
           exit 1
         fi

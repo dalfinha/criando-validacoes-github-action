@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: Checkout da última versão do código
-      uses: actions/checkout@v2 # verifica o código do repositório
+      uses: actions/checkout@v2 #  verifica o código do repositório
       
     - name: Instalação do Python
       uses: actions/setup-python@v2 # instala o python e dependencias

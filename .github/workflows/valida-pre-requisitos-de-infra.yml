@@ -14,7 +14,7 @@ jobs:
       run: |
         if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
           echo "[SUCESSO] Tag Repositorio incluída."
-          echo "Encontrada nos seguintes arquivos:"
+          echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
         else
           echo "[ERRO] Tag Repositorio não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
@@ -25,7 +25,7 @@ jobs:
       run: |
         if grep -rnil "Servico_Operacional" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
           echo "[SUCESSO] Tag Servico_Operacional incluída."
-          echo "Encontrada nos seguintes arquivos:"
+          echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
         else
           echo "[ERRO] Tag Servico_Operacional não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
@@ -36,7 +36,7 @@ jobs:
       run: |
         if grep -rnil "Tecnologia" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
           echo "[SUCESSO] Tag Tecnologia incluída."
-          echo "Encontrada nos seguintes arquivos:"
+          echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
         else
           echo "[ERRO] Tag Tecnlogia não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"

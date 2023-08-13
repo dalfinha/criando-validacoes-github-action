@@ -9,17 +9,7 @@ jobs:
     steps:
     - name: Checkout da última versão do código
       uses: actions/checkout@v2 #  verifica o código do repositório
-      
-    - name: Instalação do Python
-      uses: actions/setup-python@v2 # instala o python e dependencias
-      with:
-        python-version: 3.8
-    
-    - name: Instalação de dependências
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8
-    
+
     - name: Tag Key - Repositorio
       run: |
         if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then

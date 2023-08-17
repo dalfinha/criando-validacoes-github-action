@@ -1,0 +1,27 @@
+name: Terraform Validate in Push Origin
+
+on:
+    push: #pra cada push presente no repo
+
+jobs:
+    terraform:
+        runs-on: ubunto-latest
+
+        steps:
+          - name: Check-code
+            uses: actions/checkout@v2
+        
+          - name: Enter to path #executa só para .tf do diretorio adjacente
+            run: cd /terraform-examples
+            
+          - name: Install depends Terraform
+            uses: hashicorp/setup-terraform@v1
+
+          - name: Terraform Validate
+            run: terraform validate
+            
+          - name: Terraform Init
+            run: terraform init
+        
+          - name: Terraform Plan
+            run: terraform plan

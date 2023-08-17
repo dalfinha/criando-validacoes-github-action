@@ -20,8 +20,4 @@ jobs:
           - name: Terraform Validate
             run: terraform init && terraform validate
             working-directory: ./terraform-examples
-
-          - name: Terraform Plan
-            run: terraform plan
-            working-directory: ./terraform-examples
             

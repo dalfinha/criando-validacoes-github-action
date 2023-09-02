@@ -1,4 +1,4 @@
-# 💡 Verificação de Tags/Palavras chaves em um código
+# 💡 Usando o GitHub Actions para facilitar o dia-a-dia
 
 Pensando em automatizar pushs do Github, o script em .YAML e BASH verifica a presença de tags/termos específicas nos arquivos do repositório. Não incluíndo o actions presente no .github\workflows\.
 

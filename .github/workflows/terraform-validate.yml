@@ -10,9 +10,6 @@ jobs:
         steps:
           - name: Check-code
             uses: actions/checkout@v2
-          
-          - name: Change Directory
-            run: cd terraform-examples
         
           - name: Install depends Terraform
             uses: hashicorp/setup-terraform@v1

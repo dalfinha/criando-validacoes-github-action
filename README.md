@@ -15,3 +15,11 @@ O arquivo presente no diretório .github/workflows/ é a base para o Github Acti
    - O comando `grep` procura pela palavra nos arquivos do código, excluindo os diretórios `.github` e `.github/workflows`.
    - Se a palavra for encontrada, uma mensagem de sucesso é exibida e os arquivos onde a tag foi encontrada são listados.
    - Se a palavra não for encontrada, uma mensagem de erro é exibida com instruções para incluir a tag.
+
+### terraform-validate.yml
+
+1. **Percorre até o diretório "terraform-examples"**:
+   - Como o repositório possui mais de um arquivo com código, o ideal é acessar o diretório em específico para executar a validação.
+
+2. **Terraform Init && Terraform Validate**:
+   - Após instalar as dependências, o terraform inicia e cria uma validação na mesma action. Para que ocorra sem falhas, a validação roda apenas no diretório informado.

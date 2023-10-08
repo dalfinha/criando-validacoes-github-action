@@ -50,6 +50,4 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init e Validate
-        run: |
-          cd terraform-examples
-          terraform init && terraform validate
+        run: terraform init && terraform validate

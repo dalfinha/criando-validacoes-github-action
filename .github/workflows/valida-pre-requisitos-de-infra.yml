@@ -42,14 +42,12 @@ jobs:
           echo "[ERRO] Tag Tecnlogia não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
           exit 1
         fi
-
   terraform:
     runs-on: ubuntu-latest
 
     steps:
       - name: Instalando dependências do Terraform
         uses: hashicorp/setup-terraform@v1
-
 
       - name: Terraform Init e Validate
         run: |

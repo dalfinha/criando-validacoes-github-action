@@ -50,6 +50,9 @@ jobs:
       - name: Instalando dependências do Terraform
         uses: hashicorp/setup-terraform@v1
 
+      - name: Retornando ao diretório Pai
+        run: cd ..
+
       - name: Terraform Init e Validate
         run: terraform init && terraform validate
         working-directory: terraform-examples

@@ -52,4 +52,4 @@ jobs:
 
       - name: Terraform Init e Validate
         run: terraform init && terraform validate
-        working-directory: ./terraform-examples
+        working-directory: terraform-examples

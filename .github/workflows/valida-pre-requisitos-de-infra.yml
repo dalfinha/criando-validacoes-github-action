@@ -3,7 +3,7 @@ name: Pré requisitos (Obrigatórios)
 on: [push]
 
 jobs:
-  valida-pre-requisitos: 
+  valida-variaveis-obrigatorias: 
     runs-on: ubuntu-latest
 
     steps:
@@ -42,7 +42,8 @@ jobs:
           echo "[ERRO] Tag Tecnlogia não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
           exit 1
         fi
-  terraform:
+  terraform-validate:
+    needs: valida-variaveis-obrigatorias
     runs-on: ubuntu-latest
 
     steps:

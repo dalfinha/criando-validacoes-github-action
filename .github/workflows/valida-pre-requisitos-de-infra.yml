@@ -12,7 +12,7 @@ jobs:
 
     - name: Tag Key - Repositorio
       run: |
-        if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
+        if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github > resultado_busca.txt; then
           echo "[SUCESSO] Tag Repositorio incluída."
           echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
@@ -23,7 +23,7 @@ jobs:
 
     - name: Tag Key - Servico_Operacional
       run: |
-        if grep -rnil "Servico_Operacional" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
+        if grep -rnil "Servico_Operacional" "${{ github.workspace }}" --exclude-dir=.github > resultado_busca.txt; then
           echo "[SUCESSO] Tag Servico_Operacional incluída."
           echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
@@ -34,7 +34,7 @@ jobs:
 
     - name: Tag Key - Tecnologia
       run: |
-        if grep -rnil "Tecnologia" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
+        if grep -rnil "Tecnologia" "${{ github.workspace }}" --exclude-dir=.github  > resultado_busca.txt; then
           echo "[SUCESSO] Tag Tecnologia incluída."
           echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt

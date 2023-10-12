@@ -1,44 +1,57 @@
-name: Pré requisitos (Obrigatórios)
+name: Pré requisitos obrigatórios
 
 on: [push]
 
 jobs:
-  valida-pre-requisitos: 
+  valida-variaveis-obrigatorias: 
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout da última versão do código
-      uses: actions/checkout@v2 #  verifica o código do repositório
+      uses: actions/checkout@v2
 
     - name: Tag Key - Repositorio
       run: |
-        if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
-          echo "[SUCESSO] Tag Repositorio incluída."
+        if grep -rnil "repositorio" "${{ github.workspace }}" --exclude-dir=.github > resultado_busca.txt; then
+          echo -e "\e[32m[SUCESSO] Tag Repositorio incluída.\e[0m"
           echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
         else
-          echo "[ERRO] Tag Repositorio não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
+          echo -e "\e[31m[ERRO] Tag Repositório não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>\e[0m"
           exit 1
         fi
 
     - name: Tag Key - Servico_Operacional
       run: |
-        if grep -rnil "Servico_Operacional" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
-          echo "[SUCESSO] Tag Servico_Operacional incluída."
+        if grep -rnil "Servico_Operacional" "${{ github.workspace }}" --exclude-dir=.github > resultado_busca.txt; then
+          echo -e "\e[32m[SUCESSO] Tag Servico_Operacional incluída.\e[0m"
           echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
         else
-          echo "[ERRO] Tag Servico_Operacional não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
+          echo echo -e "\e[31m[ERRO] Tag Servico_Operacional não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>\e[0m"
           exit 1
         fi
 
     - name: Tag Key - Tecnologia
       run: |
-        if grep -rnil "Tecnologia" "${{ github.workspace }}" --exclude-dir=.github --exclude=.github/workflows/* > resultado_busca.txt; then
-          echo "[SUCESSO] Tag Tecnologia incluída."
+        if grep -rnil "Tecnologia" "${{ github.workspace }}" --exclude-dir=.github  > resultado_busca.txt; then
+          echo -e "\e[32m[SUCESSO] Tag Tecnologia incluída.\e[0m"
           echo "Encontrada no(s) seguinte(s) arquivo(s):"
           cat resultado_busca.txt
         else
-          echo "[ERRO] Tag Tecnlogia não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>"
+          echo -e "\e[31m[ERRO] Tag Tecnologia não foi encontrada nos arquivos do repositório. Inclua seguindo a documentação <link>\e[0m"
           exit 1
         fi
+  terraform-validate:
+    needs: valida-variaveis-obrigatorias
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Instalando dependências do Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Preparando Validação do Terraform
+        run: echo "Preparando dependências do Terraform Init"
+
+      - name: Terraform Init e Validate
+        run: terraform init && terraform validate
